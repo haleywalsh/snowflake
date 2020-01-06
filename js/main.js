@@ -20,7 +20,9 @@ $.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
 	
 	// The most basic basic approach is to just hide the header (uncomment to use)
 		
-	// $('header').hide();
+	// $('.main').hide();
+	// $('.days').hide();
+	// $('.info').hide();
 	
 	// Other methods include animating the header away.
 	// This can be done by adding a class name containing CSS animation
@@ -34,7 +36,7 @@ $.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
 	// Another way to remove the header is to provide a button and the event
 	// to trigger what happens when the button is clicked (uncomment to use)
 
-	// $('header').append('<a class="button" href="#">Click</a>');
+	// $('header').append('<a class=".main" href="#">Click</a>');
 	// $('header .button').click(function(){
 	//   $('header').hide();
 	// });
@@ -73,7 +75,8 @@ function displayData(forecast){
 	// For example, if I have an element <div class="today"> in my main content area
 	// I can add data from the "Daily" array like this
 
-	$('.day01 h1').html(Math.round(forecast.daily.data[0].temperatureHigh));
+	$('.day01 h1').html(Math.round(forecast.currently.apparentTemperature));
+
 
 
 	$('.day02 h3').html(Math.round(forecast.daily.data[1].temperatureHigh));
@@ -83,6 +86,50 @@ function displayData(forecast){
 	$('.day05 h3').html(Math.round(forecast.daily.data[4].temperatureHigh));
 	$('.day06 h3').html(Math.round(forecast.daily.data[5].temperatureHigh));
 	$('.day07 h3').html(Math.round(forecast.daily.data[6].temperatureHigh));
+	$('.day08 h3').html(Math.round(forecast.daily.data[7].temperatureHigh));
+
+
+	$('.one p').html(Math.round(forecast.hourly.data[4].apparentTemperature));
+	$('.two p').html(Math.round(forecast.hourly.data[8].apparentTemperature));
+	$('.three p').html(Math.round(forecast.hourly.data[12].apparentTemperature));
+	$('.four p').html(Math.round(forecast.hourly.data[16].apparentTemperature));
+	
+	// $('.one h5').html(forecast.hourly.data[4].apparentTemperature));
+	// $('.two h5').html(forecast.hourly.data[8].apparentTemperature));
+	// $('.three h5').html(forecast.hourly.data[12].apparentTemperature));
+	// $('.four h5').html(forecast.hourly.data[16].apparentTemperature));
+
+
+	$('.day03 h3').html(displayDay(2));
+	$('.day04 h3').html(displayDay(3));
+	$('.day05 h3').html(displayDay(4));
+	$('.day06 h3').html(displayDay(5));
+	$('.day07 h3').html(displayDay(6));
+	$('.day08 h3').html(displayDay(7));
+
+	$('.day03 p').html(Math.round(forecast.daily.data[2].apparentTemperatureHigh));
+	$('.day04 p').html(Math.round(forecast.daily.data[3].apparentTemperatureHigh));
+	$('.day05 p').html(Math.round(forecast.daily.data[4].apparentTemperatureHigh));
+	$('.day06 p').html(Math.round(forecast.daily.data[5].apparentTemperatureHigh));
+	$('.day07 p').html(Math.round(forecast.daily.data[6].apparentTemperatureHigh));
+	$('.day08 p').html(Math.round(forecast.daily.data[7].apparentTemperatureHigh));
+
+	
+	$('.day03 h5').html(displayIcon(forecast.daily.data[2].icon));
+	$('.day04 h5').html(displayIcon(forecast.daily.data[3].icon));
+	$('.day05 h5').html(displayIcon(forecast.daily.data[4].icon));
+	$('.day06 h5').html(displayIcon(forecast.daily.data[5].icon));
+	$('.day07 h5').html(displayIcon(forecast.daily.data[6].icon));
+	$('.day08 h5').html(displayIcon(forecast.daily.data[7].icon));
+
+	// $('.day01 p').html(forecast.currently.data[0].icon);
+
+// $('.day08 h3').html(timeConverter(forecast.hourly.data[0].time));
+
+
+	// $('.summary p').html((forecast.daily.data[0].summary));
+	
+
 	// In this example, the high temperature for the first day of the week
 	// (referenced by the number 0) is written as HTML inside the <div class="today"> element
 	// If I want to round this number up, I would modify the code like this
@@ -113,6 +160,11 @@ function displayData(forecast){
 	// "cloudy", "partly-cloudy-day", "partly-cloudy-night", "hail",
 	// "thunderstorm" and "tornado"
 
+	$('header p').click(function(){
+		//console.log('hi');
+   		$('.main').toggleClass('slide');
+	})
+
 }
 
 
@@ -138,13 +190,13 @@ function displayDay(n){
 	var d = new Date();
 	var weekday = new Array();
 
-	weekday[0] = "S";
-	weekday[1] = "M";
-	weekday[2] = "T";
-	weekday[3] = "W";
-	weekday[4] = "T";
-	weekday[5] = "F";
-	weekday[6] = "S";
+	weekday[0] = "sun";
+	weekday[1] = "mon";
+	weekday[2] = "tues";
+	weekday[3] = "wed";
+	weekday[4] = "thurs";
+	weekday[5] = "fri";
+	weekday[6] = "sat";
 
 	var dispDay = d.getDay() + n;
 
@@ -181,3 +233,95 @@ function timeConverter(UNIX_timestamp){
 
 
 
+function displayIcon(n){
+	switch(n) {
+		case "clear-day":
+    		return '<img src="img/icons/Sun.svg" alt="Clear Day">';
+    		break;
+    	case "clear-night":
+    		return '<img src="img/icons/Moon-Full.svg" alt="Clear Night">';
+    		break;
+    	case "rain":
+    		return '<img src="img/icons/Cloud-Rain.svg" alt="Rain">';
+    		break;
+    	case "snow":
+    		return '<img src="img/icons/Snowflake.svg" alt="Snow">';
+    		break;
+    	case "sleet":
+    		return '<img src="img/icons/Cloud-Hail.svg" alt="Sleet">';
+    		break;
+    	case "wind":
+    		return '<img src="img/icons/Wind.svg" alt="Wind">';
+    		break;
+    	case "fog":
+    		return '<img src="img/icons/Cloud-Fog.svg" alt="Fog">';
+    		break;
+    	case "cloudy":
+    		return '<img src="img/icons/Cloud.svg" alt="Cloudy">';
+    		break;
+    	case "partly-cloudy-day":
+    		return '<img src="img/icons/Cloud-Sun.svg" alt="Partly Cloudy Day">';
+    		break;
+    	case "partly-cloudy-night":
+    		return '<img src="img/icons/Cloud-Moon.svg" alt="Partly Cloudy Night">';
+    		break;
+    	case "hail":
+    		return '<img src="img/icons/Cloud-Hail.svg" alt="Hail">';
+    		break;
+    	case "thunderstorm":
+    		return '<img src="img/icons/Cloud-Lightening.svg" alt="Thunderstorm">';
+    		break;
+    	case "tornado":
+    		return '<img src="img/icons/Tornado.svg" alt="Tornado">';
+    		break;
+  		default:
+    		// code block
+	}
+}
+
+
+function displayQuote(n){
+	switch(n) {
+		case "clear-day":
+    		return '<img src="img/icons/Sun.svg" alt="Clear Day">';
+    		break;
+    	case "clear-night":
+    		return '<img src="img/icons/Moon-Full.svg" alt="Clear Night">';
+    		break;
+    	case "rain":
+    		return '<img src="img/icons/Cloud-Rain.svg" alt="Rain">';
+    		break;
+    	case "snow":
+    		return '<img src="img/icons/Snowflake.svg" alt="Snow">';
+    		break;
+    	case "sleet":
+    		return '<img src="img/icons/Cloud-Hail.svg" alt="Sleet">';
+    		break;
+    	case "wind":
+    		return '<img src="img/icons/Wind.svg" alt="Wind">';
+    		break;
+    	case "fog":
+    		return '<img src="img/icons/Cloud-Fog.svg" alt="Fog">';
+    		break;
+    	case "cloudy":
+    		return '<img src="img/icons/Cloud.svg" alt="Cloudy">';
+    		break;
+    	case "partly-cloudy-day":
+    		return '<img src="img/icons/Cloud-Sun.svg" alt="Partly Cloudy Day">';
+    		break;
+    	case "partly-cloudy-night":
+    		return '<img src="img/icons/Cloud-Moon.svg" alt="Partly Cloudy Night">';
+    		break;
+    	case "hail":
+    		return '<img src="img/icons/Cloud-Hail.svg" alt="Hail">';
+    		break;
+    	case "thunderstorm":
+    		return '<img src="img/icons/Cloud-Lightening.svg" alt="Thunderstorm">';
+    		break;
+    	case "tornado":
+    		return '<img src="img/icons/Tornado.svg" alt="Tornado">';
+    		break;
+  		default:
+    		// code block
+	}
+}

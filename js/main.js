@@ -36,10 +36,17 @@ $.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
 	// Another way to remove the header is to provide a button and the event
 	// to trigger what happens when the button is clicked (uncomment to use)
 
-	// $('header').append('<a class=".main" href="#">Click</a>');
-	// $('header .button').click(function(){
-	//   $('header').hide();
-	// });
+	$('header p').hide();
+	$('header').append('<a class="button" href="#">Click</a>');
+	
+	$('header .button').click(function(){
+	  $('header').hide();
+	  $('.main').toggleClass('slide');
+});
+
+	// $(' header .button').click(function(){
+ //   		$('.main').toggleClass('slide');
+	// })
 
 	// The following line calls a function to display
 	// the main weather information. DO NOT EDIT THIS LINE.
@@ -81,46 +88,52 @@ function displayData(forecast){
 
 	$('.day02 h3').html(Math.round(forecast.daily.data[1].temperatureHigh));
 
-	$('.day03 h3').html(Math.round(forecast.daily.data[2].temperatureHigh));
-	$('.day04 h3').html(Math.round(forecast.daily.data[3].temperatureHigh));
-	$('.day05 h3').html(Math.round(forecast.daily.data[4].temperatureHigh));
-	$('.day06 h3').html(Math.round(forecast.daily.data[5].temperatureHigh));
-	$('.day07 h3').html(Math.round(forecast.daily.data[6].temperatureHigh));
-	$('.day08 h3').html(Math.round(forecast.daily.data[7].temperatureHigh));
-
 
 	$('.one p').html(Math.round(forecast.hourly.data[4].apparentTemperature));
 	$('.two p').html(Math.round(forecast.hourly.data[8].apparentTemperature));
 	$('.three p').html(Math.round(forecast.hourly.data[12].apparentTemperature));
 	$('.four p').html(Math.round(forecast.hourly.data[16].apparentTemperature));
 	
-	// $('.one h5').html(forecast.hourly.data[4].apparentTemperature));
-	// $('.two h5').html(forecast.hourly.data[8].apparentTemperature));
-	// $('.three h5').html(forecast.hourly.data[12].apparentTemperature));
-	// $('.four h5').html(forecast.hourly.data[16].apparentTemperature));
+	$('.one h5').html(displayIcon(forecast.hourly.data[4].icon));
+	$('.two h5').html(displayIcon(forecast.hourly.data[8].icon));
+	$('.three h5').html(displayIcon(forecast.hourly.data[12].icon));
+	$('.four h5').html(displayIcon(forecast.hourly.data[16].icon));
 
 
-	$('.day03 h3').html(displayDay(2));
-	$('.day04 h3').html(displayDay(3));
-	$('.day05 h3').html(displayDay(4));
-	$('.day06 h3').html(displayDay(5));
-	$('.day07 h3').html(displayDay(6));
-	$('.day08 h3').html(displayDay(7));
 
-	$('.day03 p').html(Math.round(forecast.daily.data[2].apparentTemperatureHigh));
-	$('.day04 p').html(Math.round(forecast.daily.data[3].apparentTemperatureHigh));
-	$('.day05 p').html(Math.round(forecast.daily.data[4].apparentTemperatureHigh));
-	$('.day06 p').html(Math.round(forecast.daily.data[5].apparentTemperatureHigh));
-	$('.day07 p').html(Math.round(forecast.daily.data[6].apparentTemperatureHigh));
-	$('.day08 p').html(Math.round(forecast.daily.data[7].apparentTemperatureHigh));
+	$('.day03 h3').html(displayDay(1));
+	$('.day04 h3').html(displayDay(2));
+	$('.day05 h3').html(displayDay(3));
+	$('.day06 h3').html(displayDay(4));
+	$('.day07 h3').html(displayDay(5));
+	$('.day08 h3').html(displayDay(6));
+
+	$('.day03 p').html(Math.round(forecast.daily.data[1].apparentTemperatureHigh));
+	$('.day04 p').html(Math.round(forecast.daily.data[2].apparentTemperatureHigh));
+	$('.day05 p').html(Math.round(forecast.daily.data[3].apparentTemperatureHigh));
+	$('.day06 p').html(Math.round(forecast.daily.data[4].apparentTemperatureHigh));
+	$('.day07 p').html(Math.round(forecast.daily.data[5].apparentTemperatureHigh));
+	$('.day08 p').html(Math.round(forecast.daily.data[6].apparentTemperatureHigh));
 
 	
-	$('.day03 h5').html(displayIcon(forecast.daily.data[2].icon));
-	$('.day04 h5').html(displayIcon(forecast.daily.data[3].icon));
-	$('.day05 h5').html(displayIcon(forecast.daily.data[4].icon));
-	$('.day06 h5').html(displayIcon(forecast.daily.data[5].icon));
-	$('.day07 h5').html(displayIcon(forecast.daily.data[6].icon));
-	$('.day08 h5').html(displayIcon(forecast.daily.data[7].icon));
+	$('.day03 h5').html(displayIcon(forecast.daily.data[1].icon));
+	$('.day04 h5').html(displayIcon(forecast.daily.data[2].icon));
+	$('.day05 h5').html(displayIcon(forecast.daily.data[3].icon));
+	$('.day06 h5').html(displayIcon(forecast.daily.data[4].icon));
+	$('.day07 h5').html(displayIcon(forecast.daily.data[5].icon));
+	$('.day08 h5').html(displayIcon(forecast.daily.data[6].icon));
+
+	$('.day03 h4').html(forecast.daily.data[1].summary);
+	$('.day04 h4').html(forecast.daily.data[2].summary);
+	$('.day05 h4').html(forecast.daily.data[3].summary);
+	$('.day06 h4').html(forecast.daily.data[4].summary);
+	$('.day07 h4').html(forecast.daily.data[5].summary);
+	$('.day08 h4').html(forecast.daily.data[6].summary);
+
+
+	$('.quote p').html(displayIcon(forecast.daily.data[6].icon));
+	$('.quote h1').html(displayQuote(forecast.daily.data[6].icon));
+	
 
 	// $('.day01 p').html(forecast.currently.data[0].icon);
 
@@ -160,10 +173,7 @@ function displayData(forecast){
 	// "cloudy", "partly-cloudy-day", "partly-cloudy-night", "hail",
 	// "thunderstorm" and "tornado"
 
-	$('header p').click(function(){
-		//console.log('hi');
-   		$('.main').toggleClass('slide');
-	})
+	
 
 }
 
@@ -283,43 +293,43 @@ function displayIcon(n){
 function displayQuote(n){
 	switch(n) {
 		case "clear-day":
-    		return '<img src="img/icons/Sun.svg" alt="Clear Day">';
+    		return '<img src="img/quotes/sun.png" alt="Clear Day">';
     		break;
     	case "clear-night":
-    		return '<img src="img/icons/Moon-Full.svg" alt="Clear Night">';
+    		return '<img src="img/quotes/clear-night.png" alt="Clear Night">';
     		break;
     	case "rain":
-    		return '<img src="img/icons/Cloud-Rain.svg" alt="Rain">';
+    		return '<img src="img/quotes/rain.png" alt="Rain">';
     		break;
     	case "snow":
-    		return '<img src="img/icons/Snowflake.svg" alt="Snow">';
+    		return '<img src="img/quotes/snow.png" alt="Snow">';
     		break;
     	case "sleet":
-    		return '<img src="img/icons/Cloud-Hail.svg" alt="Sleet">';
+    		return '<img src="img/quotes/sleet-hail-thunderstorm.png" alt="Sleet">';
     		break;
     	case "wind":
-    		return '<img src="img/icons/Wind.svg" alt="Wind">';
+    		return '<img src="img/quotes/wind.png" alt="Wind">';
     		break;
     	case "fog":
-    		return '<img src="img/icons/Cloud-Fog.svg" alt="Fog">';
+    		return '<img src="img/quotes/fog.png" alt="Fog">';
     		break;
     	case "cloudy":
-    		return '<img src="img/icons/Cloud.svg" alt="Cloudy">';
+    		return '<img src="img/quotes/cloudy.png" alt="Cloudy">';
     		break;
     	case "partly-cloudy-day":
-    		return '<img src="img/icons/Cloud-Sun.svg" alt="Partly Cloudy Day">';
+    		return '<img src="img/quotes/cloudy.png" alt="Partly Cloudy Day">';
     		break;
     	case "partly-cloudy-night":
     		return '<img src="img/icons/Cloud-Moon.svg" alt="Partly Cloudy Night">';
     		break;
     	case "hail":
-    		return '<img src="img/icons/Cloud-Hail.svg" alt="Hail">';
+    		return '<img src="img/icons/Cloud-Moon.svg" alt="Hail">';
     		break;
     	case "thunderstorm":
-    		return '<img src="img/icons/Cloud-Lightening.svg" alt="Thunderstorm">';
+    		return '<img src="img/quotes/sleet-hail-thunderstorm.png" alt="Thunderstorm">';
     		break;
     	case "tornado":
-    		return '<img src="img/icons/Tornado.svg" alt="Tornado">';
+    		return '<img src="img/quotes/rain.png" alt="Tornado">';
     		break;
   		default:
     		// code block

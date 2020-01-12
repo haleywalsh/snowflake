@@ -108,10 +108,20 @@ textarea {
       navy #0C2C35
     */
    
+
 * {
   margin: 0;
   text-align: center;
   box-sizing: border-box;
+  color: #0C2C35;
+}
+
+h1, h1, h3, h4, h5 {
+  font-family: honeymoonregular;
+}
+
+h3 {
+  padding-top: 10%;
 }
 
 
@@ -121,29 +131,30 @@ textarea {
     background-color: #A9D5F0;
 
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
-
-     height: 100vh;
-    display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
-    justify-items: center;
+    grid-template-rows: repeat(2, 1fr);
+
+    position: fixed;
+    z-index: 1;
    }
 
    header img {
-    grid-column: 1 / span 3;
+    grid-column: 1;
     grid-row: 1;
     width: 70vw;
     /*transform: rotate(90deg);*/
     align-self: start;
-    justify-self: start;
+    justify-self: center;
    }
 
-/*    .button {
-      grid-column: 2;
-      grid-row: 5;
+   header p {
+     grid-column: 1;
+      grid-row: 2;
+   }
+
+    .button {
+      grid-column: 1;
+      grid-row: 2;
       display:inline-block;
       text-align:center;
       text-decoration: none;
@@ -153,15 +164,16 @@ textarea {
       border-radius: 2em;
       align-self: center;
       justify-self: center;
-    }*/
+      margin-bottom: 10%;
+    }
 
    .main {
     height: 100vh;
     width: 100vw;
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 
      position: fixed;
       top: 0;
@@ -172,7 +184,6 @@ textarea {
       justify-items: center;
       background-color: #009BDF;
       
-      transform: translateY(100%);
       transition: transform .4s;
    }
 
@@ -181,10 +192,13 @@ textarea {
     grid-row: 1;
     font-size: 1em;
     align-self: end;
-    margin-bottom: -10%;
+    margin-bottom: -5%;
 }
 
-/* class that will be added to move the panel up to the top of the screen and over the main section (try just adding this class to the sliding-panel section to see how this works; be sure to remove it after testing) */
+  .location h3 {
+    font-size: 2rem;
+  }
+
 
 .slide {
   transform: translateY(0);
@@ -196,10 +210,11 @@ textarea {
    }
 
    .day01 h1 {
-    font-size: 12em;
+    font-size: 10em;
     align-self: stretch;
     padding: 0;
     margin: 0;
+    font-family: fagocoblackcaps;
    }
 
    .day01 p {
@@ -207,31 +222,59 @@ textarea {
     grid-row: 2;
    }
 
+
+
      .one {
       grid-column: 1;
       grid-row: 3;
      }
+     .one p {
+          font-family: fagocoblackcaps;
+        }
 
      .two {
       grid-column: 2;
       grid-row: 3;
      }
+     .two p {
+          font-family: fagocoblackcaps;
+        }
 
      .three {
       grid-column: 3;
       grid-row: 3;
      }
+     .three p {
+          font-family: fagocoblackcaps;
+        }
 
      .four {
       grid-column: 4;
       grid-row: 3;
      }
+     .four p {
+          font-family: fagocoblackcaps;
+        }
 
 
-     .quote {
+
+     .quotep {
       grid-column: 1 / span 2;
       grid-row: 4;
+      height: 150px
+      width: 150px;
+      padding: 50%;
      }
+
+     .quoteh {
+      grid-column: 3 / span 2;
+      grid-row: 4;
+      height: 100%
+      width: 100%;
+
+     }
+
+
 
    .days {
     background-color: #d9d9d9;
@@ -243,7 +286,6 @@ textarea {
     align-items: center;
     justify-content: center;
 
-      /*position: fixed;*/
       top: 0;
       left: 0;
       width: 100%;
@@ -252,13 +294,14 @@ textarea {
       justify-items: center;
       background-color: white;
 
-      transform: translateY(80%);
+      transform: translateY(90%);
       transition: transform .4s;
 
    }
 
       .day02 h1 {
-        font-size: 3em;
+        font-size: 2em;
+        margin-top: -1%;
       }
 
       .day02 h3 {
@@ -267,76 +310,120 @@ textarea {
       }
 
       .day02 {
-         grid-column: 3 / span 2;
-        grid-row: 1 / span 3;
+         grid-column: 1 / span 6;
+        grid-row: 1;
         justify-self: center;
         align-self: start;
       }
+
+  /*light blue #A9D5F0
+      ice blue #009BDF
+      dark blue #0080AF
+      navy #0C2C35
+    */
 
       .day03 {
         grid-column: 1 / span 2;
         grid-row: 4;
         align-self: start;
-        background-color: #e6e6e6;
+        background-color: #A9D5F0;
         align-self: stretch;
         justify-self: stretch;
-      }
+       } 
+        .day03 p {
+          font-family: fagocoblackcaps;
+        }
+        .day03 h4 {
+          font-size: .75rem;
+          padding: 5%;
+        }
+    
 
       .day04 {
         grid-column: 3 / span 2;
         grid-row: 4;
         align-self: start;
-        background-color: #999999;
+        background-color: #009BDF;
         align-self: stretch;
         justify-self: stretch;
       }
+      .day04 p {
+          font-family: fagocoblackcaps;
+        }
+      .day04 h4 {
+          font-size: .75rem;
+          padding: 5%;
+        }
 
       .day05 {
         grid-column: 5 / span 2;
         grid-row: 4;
         align-self: start;
-        background-color: #595959;
+        background-color: #0080AF;
         align-self: stretch;
         justify-self: stretch;
       }
+      .day05 p {
+          font-family: fagocoblackcaps;
+        }
+      .day05 h4 {
+          font-size: .75rem;
+          padding: 5%;
+        }
 
       .day06 {
         grid-column: 1 / span 2;
         grid-row: 5;
         align-self: start;
-        background-color: #595959;
+        background-color: #0080AF;
         align-self: stretch;
         justify-self: stretch;
       }
+      .day06 p {
+          font-family: fagocoblackcaps;
+        }
+      .day06 h4 {
+          font-size: .75rem;
+          padding: 5%;
+        }
 
       .day07 {
         grid-column: 3 / span 2;
         grid-row: 5;
         align-self: start;
-        background-color: #f2f2f2;
+        background-color: #efefef;
         align-self: stretch;
         justify-self: stretch;
       }
+      .day07 p {
+          font-family: fagocoblackcaps;
+        }
+      .day07 h4 {
+          font-size: .75rem;
+          padding: 5%;
+        }
 
       .day08 {
         grid-column: 5 / span 2;
         grid-row: 5;
         align-self: start;
-        background-color: #999999;
+        background-color: #A9D5F0;
         align-self: stretch;
         justify-self: stretch;
       }
+      .day08 p {
+          font-family: fagocoblackcaps;
+        }
+      .day08 h4 {
+          font-size: .75rem;
+          padding: 5%;
+        }
 
 
 
    .info {
-
+    font-family: 'Poppins', sans-serif;
    }
-
-
-
-
-
 
 
 

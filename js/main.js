@@ -60,6 +60,19 @@ $.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
 });
 
 
+$('button').click(function(){
+	  $('.information').show();
+});
+
+$('.information').click(function(){
+	  $('.information').hide();
+});
+
+$('header .button').click(function(){
+	  $('.main').toggleClass('slide');
+});
+
+
 /* -----------------------------------------------
    Function for displaying the main weather info
    ----------------------------------------------- */
@@ -131,16 +144,10 @@ function displayData(forecast){
 	$('.day08 h4').html(forecast.daily.data[6].summary);
 
 
-	$('.quote p').html(displayIcon(forecast.daily.data[6].icon));
-	$('.quote h1').html(displayQuote(forecast.daily.data[6].icon));
+	$('.quotep p').html(displayIcon(forecast.daily.data[0].icon));
+	$('.quoteh h1').html(displayQuote(forecast.daily.data[0].icon));
 	
 
-	// $('.day01 p').html(forecast.currently.data[0].icon);
-
-// $('.day08 h3').html(timeConverter(forecast.hourly.data[0].time));
-
-
-	// $('.summary p').html((forecast.daily.data[0].summary));
 	
 
 	// In this example, the high temperature for the first day of the week

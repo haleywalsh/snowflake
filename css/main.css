@@ -150,6 +150,8 @@ h3 {
    header p {
      grid-column: 1;
       grid-row: 2;
+      font-family: honeymoonregular;
+
    }
 
     .button {
@@ -165,6 +167,21 @@ h3 {
       align-self: center;
       justify-self: center;
       margin-bottom: 10%;
+      font-family: fagocoblackcaps;
+    }
+
+    button {
+      display:inline-block;
+      text-align:center;
+      text-decoration: none;
+      padding: 1em 3em;
+      background-color: #0C2C35;
+      color: white;
+      border-radius: 2em;
+      align-self: center;
+      justify-self: center;
+      margin-bottom: 10%;
+      font-family: fagocoblackcaps;
     }
 
    .main {
@@ -192,11 +209,12 @@ h3 {
     grid-row: 1;
     font-size: 1em;
     align-self: end;
-    margin-bottom: -5%;
 }
 
   .location h3 {
     font-size: 2rem;
+    margin-top: 10%;
+    margin-bottom: -10%;
   }
 
 
@@ -207,6 +225,8 @@ h3 {
    .day01 {
     grid-column: 2 / span 2;
     grid-row: 2;
+    margin-top: -5%;
+    padding-bottom: 10%;
    }
 
    .day01 h1 {
@@ -230,6 +250,7 @@ h3 {
      }
      .one p {
           font-family: fagocoblackcaps;
+          font-size: 1.75rem;
         }
 
      .two {
@@ -238,6 +259,7 @@ h3 {
      }
      .two p {
           font-family: fagocoblackcaps;
+          font-size: 1.75rem;
         }
 
      .three {
@@ -246,6 +268,7 @@ h3 {
      }
      .three p {
           font-family: fagocoblackcaps;
+          font-size: 1.75rem;
         }
 
      .four {
@@ -254,6 +277,7 @@ h3 {
      }
      .four p {
           font-family: fagocoblackcaps;
+          font-size: 1.75rem;
         }
 
 
@@ -273,6 +297,35 @@ h3 {
       width: 100%;
 
      }
+
+    .info {
+      grid-column: 3
+      grid-row: 1;
+      justify-self: start;
+      margin: 5%;
+      }
+
+
+      .information {
+      position: fixed;
+      display: none; 
+      width: 100vw; 
+      height: 100vh; 
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255,255,255,.9); 
+      z-index: 2;
+      padding: 3em;
+      }
+
+
+      #overlay p {
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        padding: 1em;
+      }
 
 
 
@@ -304,16 +357,13 @@ h3 {
         margin-top: -1%;
       }
 
-      .day02 h3 {
-        font-size: 12em;
-        line-height: 30%;
-      }
 
       .day02 {
          grid-column: 1 / span 6;
         grid-row: 1;
         justify-self: center;
         align-self: start;
+        margin-bottom: -20%;
       }
 
   /*light blue #A9D5F0

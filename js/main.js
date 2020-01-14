@@ -1,3 +1,5 @@
+	$('.days').hide();
+
 /* -----------------------------------------------
    Function for retrieving the main weather info
    ----------------------------------------------- */
@@ -42,6 +44,8 @@ $.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
 	$('header .button').click(function(){
 	  // $('header').hide();
 	  $('.main').toggleClass('slide');
+	  	$('.days').show();
+
 });
 
 	// $(' header .button').click(function(){
@@ -83,6 +87,11 @@ $('header .button').click(function(){
 
 function displayData(forecast){
 
+$('.days').click(function(){
+	  $(this).toggleClass('slide');
+	  //$('.days').toggleClass('slide');
+
+});
 	// Target an element in your interface and display
 	// dynamic weather information inside of it
 

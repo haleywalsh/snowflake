@@ -40,7 +40,7 @@ $.getJSON('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/
 	$('header').append('<a class="button" href="#">Click</a>');
 	
 	$('header .button').click(function(){
-	  $('header').hide();
+	  // $('header').hide();
 	  $('.main').toggleClass('slide');
 });
 

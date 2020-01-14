@@ -202,6 +202,8 @@ h3 {
       background-color: #009BDF;
       
       transition: transform .4s;
+      transform: translateY(100%);
+      z-index: 1;
    }
 
    .location {
@@ -221,6 +223,7 @@ h3 {
 .slide {
   transform: translateY(0);
 }
+
 
    .day01 {
     grid-column: 2 / span 2;
@@ -348,7 +351,7 @@ h3 {
       background-color: white;
 
       transform: translateY(90%);
-      transition: transform .4s;
+      position: fixed;
 
    }
 
